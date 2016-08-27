@@ -1,4 +1,4 @@
-# Wrapper for Slack Notification
+# A lightweight wrapper for Slack Notification
 
 ##### Required:
 

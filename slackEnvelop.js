@@ -1,11 +1,11 @@
+var slack = require('./slack.js');
+
 module.exports = {
     getSlackEnvelop: function() {
-
     	if ( typeof process.env.SLACK_TOKEN === 'undefined' )
     	{
     		console.log('**** ADD SLACK_TOKEN VALUE IN YOUR ENV VARIABLE ****');
     	}
-
   		return createSlackEnvelop();
     }
 };
@@ -15,9 +15,8 @@ var createSlackEnvelop = function() {
 	return (function() {
         var title = null;
         var description = null;
-        var attrs = {}
+        var attrs = {};
 
-        ;
         var channel = "C0MRV8SBF";
 
         return {
@@ -61,13 +60,11 @@ var createSlackEnvelop = function() {
             },
 
             build: function() {
-                var slack = require('./slack.js');
                 // Observer Pattern
                 return slack.getObservable(this);
             },
             exec: function() {
-            	var slack = require('./slack.js');
-                return slack.notify(this);
+				slack.notify(this);
             }
         };
     })();

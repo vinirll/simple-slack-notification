@@ -1,7 +1,7 @@
 {
-  "name": "slack-notification-wrapper",
+  "name": "simple-slack-notification",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A wrapper to facilitate slack notification api usage",
   "keywords": [],
   "dependencies": {
@@ -12,7 +12,7 @@
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "git://github.com/viniciuslima/teleferidas.git"
+    "url": "git://github.com/vinirll/simple-slack-notification"
   },
   "author": "Vinicius Lima",
   "license": ""
