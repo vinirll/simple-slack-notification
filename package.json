@@ -1,0 +1,19 @@
+{
+  "name": "slack-notification-wrapper",
+  "private": false,
+  "version": "0.0.1",
+  "description": "A wrapper to facilitate slack notification api usage",
+  "keywords": [],
+  "dependencies": {
+    "async": "^2.0.0-rc.5",
+    "https": "^1.0.0",
+    "querystring": "^0.2.0"
+  },
+  "main": "app.js",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/viniciuslima/teleferidas.git"
+  },
+  "author": "Vinicius Lima",
+  "license": ""
+}
