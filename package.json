@@ -9,7 +9,7 @@
     "https": "^1.0.0",
     "querystring": "^0.2.0"
   },
-  "main": "app.js",
+  "main": "slackEnvelop.js",
   "repository": {
     "type": "git",
     "url": "git://github.com/vinirll/simple-slack-notification"
