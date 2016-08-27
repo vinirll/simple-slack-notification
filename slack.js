@@ -21,8 +21,8 @@ module.exports = {
 
 	notify: function(envelop,callback) {
 		var postData = querystring.stringify({
-		  'token' : TOKEN,
-		  'channel': '#mychannel', //envelop.getChannel(),
+		  'token' : process.env.SLACK_TOKEN,
+		  'channel':  envelop.getChannel(),
 		  'text': envelop.getText(),
 		  'username': 'WeggoBot',
 		  'icon_emoji': ':minibus:'

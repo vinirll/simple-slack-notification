@@ -1,5 +1,11 @@
 module.exports = {
     getSlackEnvelop: function() {
+
+    	if ( typeof process.env.SLACK_TOKEN === 'undefined' )
+    	{
+    		console.log('**** ADD SLACK_TOKEN VALUE IN YOUR ENV VARIABLE ****');
+    	}
+
   		return createSlackEnvelop();
     }
 };
@@ -9,24 +15,26 @@ var createSlackEnvelop = function() {
 	return (function() {
         var title = null;
         var description = null;
-        var attrs = {};
-        var channel = "#default";
+        var attrs = {}
+
+        ;
+        var channel = "C0MRV8SBF";
 
         return {
             setChannel: function(channelParam) {
-                this.channel = channelParam
+                channel = channelParam
                 return this;
             },
             setDescription: function(descriptionParam) {
-                this.description = descriptionParam;
+                description = descriptionParam;
                 return this;
             },
             setTitle: function(titleParam) {
-                this.title = titleParam;
+                title = titleParam;
                 return this;
             },
             setAttributes: function(attrsParam) {
-            	this.attrs = attrsParam;
+            	attrs = attrsParam;
             	return this;
             },
 
@@ -42,11 +50,11 @@ var createSlackEnvelop = function() {
             getText: function() {
             	var that = this;
 
-            	var msg = "*"+this.title+"*\n";
-            	msg += ">"+this.description+"\n";
+            	var msg = "*"+title+"*\n";
+            	msg += ">"+description+"\n";
 
-            	Object.keys(this.attrs).forEach(function(key) {
-				  msg += "*"+key + ":* " + that.attrs[key] + "\n";
+            	Object.keys(attrs).forEach(function(key) {
+				  msg += "*"+key + ":* " + attrs[key] + "\n";
 				});
 
             	return msg;
@@ -58,7 +66,8 @@ var createSlackEnvelop = function() {
                 return slack.getObservable(this);
             },
             exec: function() {
-            	// TODO
+            	var slack = require('./slack.js');
+                return slack.notify(this);
             }
         };
     })();
